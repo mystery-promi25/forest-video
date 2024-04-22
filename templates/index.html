@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <h1>Hi, {{ current_user.username }}!</h1>
+    <h2>List of Videos</h2>
+    <ul>
+        {% for video in videos | reverse %}
+            <li style="list-style-type:none;">
+                <hr>
+                <a href="/play/{{ video.id }}">
+                <video style="width: 10%; height: 10%;">
+                    <source src="{{ url_for('videos', filename=video.video_filename) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <br>
+                <p>{{ video.title }}</p></a>
+                <p><a href="{{ url_for('user', username=video.username)}}">Posted By: {{ video.username }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+{% endblock %}
