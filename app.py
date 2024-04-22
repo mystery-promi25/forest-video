@@ -17,8 +17,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
 
-VIDEO_FOLDER = '/home/michael/Desktop/Coding/Math-F1-Python/michael_youtube/videos'
-THUMBNAIL_FOLDER = '/home/michael/Desktop/Coding/Math-F1-Python/michael_youtube/thumbnails'
+VIDEO_FOLDER = 'videos'
+THUMBNAIL_FOLDER = 'thumbnails'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
